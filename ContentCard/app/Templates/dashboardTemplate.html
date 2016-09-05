@@ -1,0 +1,24 @@
+<form class="navbar-form" role="search">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" ng-model="searchData">
+    </div>
+    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+</form>
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-3" ng-repeat="item in cardItems | filter : searchData" ng-init="dataItem=0;" ng-mouseover="dataItem=2" ng-mouseout="dataItem=0">
+        <div class="card card-inverse cardoverlay">
+            <img class="card-img img-responsive" src='{{item.imageUrl}}' alt="Card image">
+            <div class="card-img-overlay">
+                <h4 class="card-title">{{item.title}}</h4>
+                <p class="card-text">{{item.description}}</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+
+        </div>
+        <div class="footerCard" ng-show="dataItem==2">
+            <span> <img src="img/open.png"></span>
+            <span> <img src="img/delete.png"></span>
+            <span> <img src="img/print.png"></span>
+        </div>
+    </div>
+</div>
